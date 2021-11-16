@@ -1,5 +1,8 @@
 import sqlite3
+import bcrypt
 
+
+#============database============
 
 def sqlite_connect():
     conn = sqlite3.connect("urlshorted.db")
@@ -28,3 +31,11 @@ def getUrlForShort(short_url):
     c = conn.cursor()
     url = c.execute('''SELECT url FROM Links Where short_url = :short_url''',{"short_url":short_url}).fetchone()
     return "".join(url)
+
+#========================
+
+def hashUrl(url):
+    url = bcrypt.hashpw(url.encode("utf-8"),bcrypt.gensalt())
+    url = url[::-1]
+    url = url[::8]
+    return url
