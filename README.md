@@ -1,10 +1,11 @@
 # urlShortedService
 
-``` 
-type_id: 1 // public
-type_id: 2 // private 
-type_id: 3 // authorized 
-```
+### type_id
+
+> public = 1
+> private = 2 
+> authorized = 3 
+
 
 ## create public short-link  
 
