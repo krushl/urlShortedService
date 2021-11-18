@@ -9,7 +9,7 @@ def sqlite_connect():
 def register(login,password):
     conn = sqlite_connect()
     c = conn.cursor()
-    c.execute('''INSERT INTO Users (login,password) VALUES(:login,:password) ''',{"login":login,"password":password})
+    c.execute('''INSERT INTO Users (login,password) VALUES(:login,:password) ''',{"login":login,"password":password}).fetchone()
     id = c.execute("""SELECT id FROM Users WHERE login=:login""",{"login":login}).fetchone()
     conn.commit()
     return id
@@ -17,7 +17,7 @@ def register(login,password):
 def login(login):
     conn = sqlite_connect()
     c = conn.cursor()
-    password = c.execute('''SELECT password FROM Users WHERE login = :login''',{"login":login})
+    password = c.execute('''SELECT password FROM Users WHERE login = :login''',{"login":login}).fetchone()
     conn.commit()
     return password
 
