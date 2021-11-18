@@ -2,9 +2,9 @@
 
 ### type_id
 
-> public = 1
-> private = 2 
-> authorized = 3 
+>public = 1
+>private = 2 
+>authorized = 3 
 
 
 ## create public short-link  
