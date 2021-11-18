@@ -2,9 +2,9 @@
 
 ### type_id
 
->public = 1
->private = 2 
->authorized = 3 
+* public = 1
+* private = 2 
+* authorized = 3 
 
 
 ## create public short-link  
@@ -21,11 +21,11 @@ you do not need to log in to create a link or follow it
 ```
 in postman
 
-* http://127.0.0.1:5000/youtube 
+> http://127.0.0.1:5000/youtube 
 
 or
 
-* http://127.0.0.1:5000/aifhCqd$
+> http://127.0.0.1:5000/aifhCqd$
 
 
 
@@ -55,9 +55,9 @@ private:
 
 in postman
 
-* http://127.0.0.1:5000/youtube 
+> http://127.0.0.1:5000/youtube 
 
 or
 
-* http://127.0.0.1:5000/aifhCqd$
+> http://127.0.0.1:5000/aifhCqd$
 
