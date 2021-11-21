@@ -13,7 +13,7 @@
 you do not need to log in to create a link or follow it
 
 > http://127.0.0.1:5000/createShortUrl
-> request body in postman
+request body in postman
 
 ``` JSON 
 {
@@ -38,7 +38,7 @@ or
 you need to log in to create private and authorized links
 
 > http://127.0.0.1:5000/createShortUrl
-> request body in postman
+request body in postman
 
 authorized:
 ``` JSON 
