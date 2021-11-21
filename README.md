@@ -9,7 +9,11 @@
 
 ## create public short-link  
 
+
 you do not need to log in to create a link or follow it
+
+> http://127.0.0.1:5000/createShortUrl
+> request body in postman
 
 ``` JSON 
 {
@@ -32,6 +36,9 @@ or
 ## create authorized and private short-link
 
 you need to log in to create private and authorized links
+
+> http://127.0.0.1:5000/createShortUrl
+> request body in postman
 
 authorized:
 ``` JSON 
