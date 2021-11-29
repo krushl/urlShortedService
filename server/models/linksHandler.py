@@ -32,6 +32,14 @@ def getUrlForShort(short_url):
     url = c.execute('''SELECT * FROM Links Where short_url = :short_url''',{"short_url":short_url}).fetchone()
     return url
 
+def deleteLink(short_url,user_id):
+    conn = sqlite_connect()
+    c = conn.cursor()
+    url = c.execute('''DELETE * FROM Links WHERE short_url = :short_url and user_id = user_id and type_id != 1''',{"short_url":short_url,"user_id":user_id}).fetchone()
+    conn.commit()
+    return url
+
+# def changeDataLink()
 #========================
 
 def hashUrl(url):
@@ -41,14 +49,16 @@ def hashUrl(url):
     return url
 
 def redirectByType(url,user_id):
-    if url[4] == 1:
+    type_url = url[4]
+    user_id_fromDB = url[5]
+    if type_url == 1:
         return url[1],200
-    elif url[4] == 2:
-        if user_id == url[5]:
+    elif type_url == 2:
+        if user_id == user_id_fromDB:
             return url[1],200
         else:
             return "Forbidden",403
-    elif url[4] == 3:
+    elif type_url == 3:
         if user_id:
             return url[1],200
         else:

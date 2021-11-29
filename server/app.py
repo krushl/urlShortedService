@@ -20,6 +20,11 @@ jwt = JWTManager(app)
 
 db.createDb()
 
+@app.route("/test", methods=["POST"])
+def test():
+    print(request.get_json())
+    return request.get_json()
+
 
 @app.route("/auth/register", methods=["POST"])
 def register():
