@@ -14,6 +14,7 @@ from flask_jwt_extended import JWTManager
 
 import bcrypt
 
+hostname = "http://localhost:5000/"
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "zykov123"
 jwt = JWTManager(app)
@@ -22,7 +23,7 @@ db.createDb()
 
 @app.route("/test", methods=["POST"])
 def test():
-    print(request.get_json())
+    print(request.get_json(force=True))
     return request.get_json()
 
 
@@ -119,32 +120,32 @@ def createShort():
         if alias_url:
             if type_id == 3 and user_id:
                 linksHandler.createLinkWithAlias(url,shortUrl,alias_url,type_id,user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             elif type_id == 2 and user_id:
                 linksHandler.createLinkWithAlias(url, shortUrl, alias_url, type_id, user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             elif type_id == 1:
                 linksHandler.createLinkWithAlias(url, shortUrl, alias_url, type_id, user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             else:
                 return {"bad request":400}
         else:
             if type_id == 3 and user_id:
                 linksHandler.createLink(url, shortUrl, type_id, user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             elif type_id == 2 and user_id:
                 linksHandler.createLink(url, shortUrl, type_id, user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             elif type_id == 1:
                 linksHandler.createLink(url, shortUrl, type_id, user_id)
-                return {"ok": 200}
+                return hostname + shortUrl
             else:
                 return {"bad request":400}
 
     else:
         return {"bad request":400}
 
-    print(f"{url},{alias_url},{type_id},{user_id}")
+
 
     return {"ok": 200}
 
